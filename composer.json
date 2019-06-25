@@ -1,0 +1,26 @@
+{
+    "name": "antoinelemaire/eudonet-php",
+    "description": "Eudonet API client built on top of Guzzle 6",
+    "keywords": ["eudonet", "api", "guzzle"],
+    "license": "Apache Version 2",
+    "authors": [
+        {
+            "name": "AntoineLemaire",
+            "homepage": "https://github.com/AntoineLemaire"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Eudonet\\": ["src"]
+        }
+    },
+    "require": {
+        "php": ">= 5.6",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "symfony/var-dumper": "^4.2"
+    }
+}
