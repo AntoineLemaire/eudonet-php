@@ -2,7 +2,7 @@
     "name": "antoinelemaire/eudonet-php",
     "description": "Eudonet API client built on top of Guzzle 6",
     "keywords": ["eudonet", "api", "guzzle"],
-    "license": "Apache Version 2",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "AntoineLemaire",
