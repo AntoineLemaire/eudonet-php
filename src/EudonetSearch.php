@@ -23,7 +23,7 @@ class EudonetSearch
     }
 
     /**
-     * Get file by ID
+     * Get file by ID.
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
      *
@@ -31,32 +31,42 @@ class EudonetSearch
      */
     public function getFile($tabId, $fileId)
     {
-        return $this->client->get(self::BASE_ENDPOINT."/".$tabId.'/'.$fileId);
+        return $this->client->get(self::BASE_ENDPOINT.'/'.$tabId.'/'.$fileId);
     }
 
     /**
-     * Gets a single User with their ID.
-     *
-     * @param int $id
+     * Advanced Search.
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
      *
      * @return mixed
      */
-    public function getUser($id)
+    public function advancedSearch($tabId, $datas)
     {
-        $path = $this->userPath($id);
-
-        return $this->client->get($path);
+        return $this->client->post(self::BASE_ENDPOINT.'/'.$tabId, $datas);
     }
 
     /**
-     * @param $id
+     * Fast Search.
      *
-     * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return mixed
      */
-    public function userPath($id)
+    public function fastSearch($tabId, $datas)
     {
-        return self::BASE_ENDPOINT.'/'.$id;
+        return $this->client->post(self::BASE_ENDPOINT.'/Fast/'.$tabId, $datas);
+    }
+
+    /**
+     * Search the list of occupied planning dates according to the provided criteria.
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return mixed
+     */
+    public function planningOccupied($datas)
+    {
+        return $this->client->post(self::BASE_ENDPOINT.'/PlanningOccupied/', $datas);
     }
 }

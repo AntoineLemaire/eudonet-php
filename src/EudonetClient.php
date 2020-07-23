@@ -3,8 +3,10 @@
 namespace Eudonet;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use function GuzzleHttp\Psr7\stream_for;
 use Psr\Http\Message\ResponseInterface;
+use function json_decode;
 
 class EudonetClient
 {
@@ -26,9 +28,9 @@ class EudonetClient
     public $cud;
 
     /**
-     * @var Client $http_client
+     * @var Client
      */
-    private $http_client;
+    private $httpClient;
 
     /**
      * @var EudonetToken|null
@@ -121,9 +123,6 @@ class EudonetClient
         return $this->token;
     }
 
-    /**
-     * @param EudonetToken $token
-     */
     public function setToken(EudonetToken $token)
     {
         $this->token = $token;
@@ -145,7 +144,7 @@ class EudonetClient
      * @param string $endpoint
      * @param array  $datas
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      *
      * @return mixed
      */
@@ -174,7 +173,7 @@ class EudonetClient
      * @param string $endpoint
      * @param array  $datas
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      *
      * @return mixed
      */
@@ -198,7 +197,7 @@ class EudonetClient
      * @param string $endpoint
      * @param array  $datas
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      *
      * @return mixed
      */
@@ -220,7 +219,7 @@ class EudonetClient
      * @param string $endpoint
      * @param array  $$datas
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      *
      * @return mixed
      */
@@ -265,14 +264,12 @@ class EudonetClient
     }
 
     /**
-     * @param ResponseInterface $response
-     *
      * @return mixed
      */
     private function handleResponse(ResponseInterface $response)
     {
         $stream = stream_for($response->getBody());
-        $data = \json_decode($stream);
+        $data = json_decode($stream);
 
         return $data;
     }
