@@ -28,6 +28,11 @@ class EudonetClient
     public $cud;
 
     /**
+     * @var EudonetAnnexe
+     */
+    public $annexe;
+
+    /**
      * @var Client
      */
     private $httpClient;
@@ -98,6 +103,7 @@ class EudonetClient
         $this->authenticate = new EudonetAuthenticate($this);
         $this->search = new EudonetSearch($this);
         $this->cud = new EudonetCUD($this);
+        $this->annexe = new EudonetAnnexe($this);
     }
 
     private function setDefaultClient()
