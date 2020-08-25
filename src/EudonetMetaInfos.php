@@ -40,8 +40,8 @@ class EudonetMetaInfos
      *
      * @return mixed
      */
-    public function listTabs(array $fields)
+    public function listTabs()
     {
-        return $this->client->get(self::BASE_ENDPOINT.'/ListTabs/', $fields);
+        return $this->client->get(self::BASE_ENDPOINT.'/ListTabs/');
     }
 }
