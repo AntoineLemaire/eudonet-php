@@ -33,6 +33,11 @@ class EudonetClient
     public $annexe;
 
     /**
+     * @var EudonetMetaInfos
+     */
+    public $metaInfos;
+
+    /**
      * @var Client
      */
     private $httpClient;
@@ -104,6 +109,7 @@ class EudonetClient
         $this->search = new EudonetSearch($this);
         $this->cud = new EudonetCUD($this);
         $this->annexe = new EudonetAnnexe($this);
+        $this->metaInfos = new EudonetMetaInfos($this);
     }
 
     private function setDefaultClient()
