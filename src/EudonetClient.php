@@ -3,9 +3,8 @@
 namespace Eudonet;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Utils;
 use GuzzleHttp\Exception\GuzzleException;
-use function GuzzleHttp\Psr7\stream_for;
-use function json_decode;
 use Psr\Http\Message\ResponseInterface;
 
 class EudonetClient
@@ -256,9 +255,8 @@ class EudonetClient
      */
     private function handleResponse(ResponseInterface $response)
     {
-        $stream = stream_for($response->getBody());
-        $data = json_decode($stream);
+        $stream = Utils::streamFor($response->getBody());
 
-        return $data;
+        return json_decode($stream);
     }
 }
