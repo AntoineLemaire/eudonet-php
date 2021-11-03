@@ -14,8 +14,6 @@ class EudonetAuthenticate
 
     /**
      * EudonetAuthenticate constructor.
-     *
-     * @param EudonetClient $client
      */
     public function __construct(EudonetClient $client)
     {
@@ -32,7 +30,7 @@ class EudonetAuthenticate
     public function getToken()
     {
         if ($token = $this->client->getToken()) {
-            if(!$token->isExpired()){
+            if (!$token->isExpired()) {
                 return $token;
             }
 

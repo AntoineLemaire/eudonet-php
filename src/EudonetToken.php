@@ -15,12 +15,8 @@ class EudonetToken
 
     /**
      * EudonetToken constructor.
-     *
-     * @param string    $token
-     * @param \DateTime $expirationDate
-     * @param \DateTime $serverDate
      */
-    public function __construct($token, \DateTime $expirationDate, \DateTime $serverDate)
+    public function __construct(string $token, \DateTime $expirationDate, \DateTime $serverDate)
     {
         $this->token = $token;
         $this->expirationDate = $expirationDate;

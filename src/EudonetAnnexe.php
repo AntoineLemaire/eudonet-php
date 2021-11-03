@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Eudonet;
-
 
 class EudonetAnnexe
 {
@@ -12,7 +10,7 @@ class EudonetAnnexe
     private $client;
 
     /**
-     * EudonetCUD constructor.
+     * EudonetAnnexe constructor.
      *
      * @param EudonetClient $client
      */
@@ -22,14 +20,12 @@ class EudonetAnnexe
     }
 
     /**
-     * @param array $fields
-     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      *
      * @return mixed
      */
     public function add(array $fields)
     {
-        return $this->client->post(self::BASE_ENDPOINT.'/Add',  $fields);
+        return $this->client->post(self::BASE_ENDPOINT.'/Add', $fields);
     }
 }

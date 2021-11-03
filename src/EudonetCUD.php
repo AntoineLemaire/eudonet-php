@@ -20,8 +20,7 @@ class EudonetCUD
     }
 
     /**
-     * @param int   $tabId
-     * @param array $fields
+     * @param int $tabId
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
      *

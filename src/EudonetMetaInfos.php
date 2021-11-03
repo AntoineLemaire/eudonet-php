@@ -10,7 +10,7 @@ class EudonetMetaInfos
     private $client;
 
     /**
-     * EudonetCUD constructor.
+     * EudonetMetaInfos constructor.
      *
      * @param EudonetClient $client
      */

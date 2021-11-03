@@ -5,81 +5,56 @@ namespace Eudonet;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use function GuzzleHttp\Psr7\stream_for;
-use Psr\Http\Message\ResponseInterface;
 use function json_decode;
+use Psr\Http\Message\ResponseInterface;
 
 class EudonetClient
 {
     const BASE_URI = 'my.eudonet.com/eudoapi/';
 
-    /**
-     * @var EudonetAuthenticate
-     */
+    /** @var EudonetAuthenticate */
     public $authenticate;
 
-    /**
-     * @var EudonetSearch
-     */
+    /** @var EudonetSearch */
     public $search;
 
-    /**
-     * @var EudonetCUD
-     */
+    /** @var EudonetCUD */
     public $cud;
 
-    /**
-     * @var EudonetAnnexe
-     */
+    /** @var EudonetAnnexe */
     public $annexe;
 
-    /**
-     * @var EudonetMetaInfos
-     */
+    /** @var EudonetMetaInfos */
     public $metaInfos;
 
-    /**
-     * @var Client
-     */
+    /** @var EudonetCatalog */
+    public $catalog;
+
+    /** @var Client */
     private $httpClient;
 
-    /**
-     * @var EudonetToken|null
-     */
+    /** @var EudonetToken|null */
     private $token;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $subscriberLogin;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $subscriberPassword;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $baseName;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $userLogin;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $userPassword;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $userLang;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $productName;
 
     /**
@@ -110,6 +85,7 @@ class EudonetClient
         $this->cud = new EudonetCUD($this);
         $this->annexe = new EudonetAnnexe($this);
         $this->metaInfos = new EudonetMetaInfos($this);
+        $this->catalog = new EudonetCatalog($this);
     }
 
     private function setDefaultClient()
